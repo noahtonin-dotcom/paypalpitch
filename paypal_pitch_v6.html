@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PayPal Holdings — Stock Pitch 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #001f5b;
+  --blue:   #0050b3;
+  --sky:    #009cde;
+  --ice:    #e8f5fc;
+  --white:  #ffffff;
+  --off:    #f6f7f9;
+  --ink:    #0c0c0c;
+  --mid:    #444;
+  --muted:  #888;
+  --rule:   #ddd;
+  --green:  #0a6640;
+  --red:    #b01c22;
+  --amber:  #7a5000;
+  --serif:  'Fraunces', Georgia, serif;
+  --sans:   'DM Sans', system-ui, sans-serif;
+  --mono:   'DM Mono', monospace;
+  --slide-h: 100vh;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 15px; }
+body {
+  font-family: var(--sans);
+  background: var(--off);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV BAR ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: var(--navy);
+  border-bottom: 2px solid var(--sky);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 52px;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-brand .dot {
+  width: 8px; height: 8px;
+  background: var(--sky);
+  border-radius: 50%;
+}
+.nav-links {
+  display: flex; gap: 2px; list-style: none;
+}
+.nav-links a {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.nav-right {
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-price {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+}
+.nav-price b { color: #fff; }
+.buy-tag {
+  background: var(--sky);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+}
+
+/* ── SLIDES ── */
+.slide {
+  min-height: var(--slide-h);
+  padding: 52px 0 0; /* nav offset */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.slide-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 52px 60px;
+  width: 100%;
+}
+
+/* slide separators */
+.slide + .slide { border-top: 2px solid var(--rule); }
+
+/* ── SLIDE LABELS ── */
+.slide-label {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 20px;
+}
+.slide-num {
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--sky);
+}
+.slide-sep { width: 24px; height: 1px; background: var(--sky); }
+.slide-cat {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── TITLES ── */
+.title-xl {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -1.5px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.title-lg {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.title-md {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.sky-text { color: var(--sky); }
+.deck {
+  font-size: 15px; font-weight: 300; color: var(--mid);
+  max-width: 640px; line-height: 1.70; margin-bottom: 36px;
+}
+
+/* ── COVER SLIDE ── */
+#cover {
+  background: var(--navy);
+  color: #fff;
+}
+#cover .slide-num { color: var(--sky); }
+#cover .title-xl { color: #fff; }
+#cover .deck { color: rgba(255,255,255,0.65); max-width: 580px; }
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 60px;
+  align-items: start;
+}
+@media(max-width:800px){ .cover-grid { grid-template-columns: 1fr; } }
+
+.cover-rating {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 28px;
+}
+.cr-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 8px;
+}
+.cr-val {
+  font-family: var(--serif);
+  font-size: 52px; font-weight: 900;
+  color: var(--sky); line-height: 1;
+  letter-spacing: -2px; margin-bottom: 20px;
+}
+.cr-rows { display: flex; flex-direction: column; gap: 0; }
+.cr-row {
+  display: flex; justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.cr-row:last-child { border-bottom: none; }
+.cr-row .crl { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.30); }
+.cr-row .crv { font-family: var(--mono); font-size: 13px; font-weight: 500; color: #fff; }
+.crv.grn { color: #5ddf9a; }
+.crv.sky { color: var(--sky); }
+
+.cover-strip {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  margin-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+@media(max-width:900px){ .cover-strip { grid-template-columns: repeat(3,1fr); } }
+.cs {
+  padding: 18px 0 20px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.cs:last-child { border-right: none; }
+.cs-l { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.30); margin-bottom: 6px; }
+.cs-v { font-family: var(--mono); font-size: 20px; font-weight: 500; color: #fff; line-height: 1; }
+.cs-v.sky { color: var(--sky); }
+.cs-v.grn { color: #5ddf9a; }
+.cs-s { font-size: 9.5px; color: rgba(255,255,255,0.28); margin-top: 3px; }
+
+/* ── STAT CALLOUT BOXES ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.stat-row.three { grid-template-columns: repeat(3,1fr); }
+.stat-row.six { grid-template-columns: repeat(6,1fr); }
+@media(max-width:800px){ .stat-row, .stat-row.six { grid-template-columns: repeat(2,1fr); } }
+
+.stat-box {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--sky);
+  padding: 20px;
+}
+.stat-box.navy { background: var(--navy); border-color: var(--navy); }
+.stat-box.green-top { border-top-color: var(--green); }
+.stat-box.amber-top { border-top-color: var(--amber); }
+.stat-box.red-top   { border-top-color: var(--red);   }
+
+.sb-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.stat-box.navy .sb-label { color: rgba(255,255,255,0.40); }
+.sb-val {
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 900;
+  letter-spacing: -1px; line-height: 1;
+  color: var(--navy);
+}
+.stat-box.navy .sb-val { color: var(--sky); }
+.sb-val.grn { color: var(--green); }
+.sb-val.red { color: var(--red); }
+.sb-val.amb { color: var(--amber); }
+.sb-sub { font-size: 11px; color: var(--muted); margin-top: 5px; font-weight: 500; }
+.stat-box.navy .sb-sub { color: rgba(255,255,255,0.35); }
+
+/* ── TABLES ── */
+.tbl {
+  width: 100%; border-collapse: collapse;
+  font-size: 12.5px;
+}
+.tbl caption {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted); text-align: left;
+  padding-bottom: 8px;
+}
+.tbl thead th {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white);
+  background: var(--navy);
+  padding: 9px 12px;
+  text-align: right; white-space: nowrap;
+}
+.tbl thead th:first-child { text-align: left; }
+.tbl tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--rule);
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 12px; color: var(--mid);
+}
+.tbl tbody td:first-child {
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 500; color: var(--ink);
+}
+.tbl tbody tr:nth-child(even) { background: var(--off); }
+.tbl tbody tr.hl { background: #deeaf8 !important; }
+.tbl tbody tr.hl td { color: var(--navy); font-weight: 700; }
+.tbl tbody tr.sub td { font-style: italic; font-size: 11.5px; color: var(--muted); }
+.tbl tbody tr.sub td:first-child { padding-left: 20px; }
+.tbl tbody tr.total td { font-weight: 700; color: var(--navy); background: var(--off); border-top: 1px solid var(--rule); }
+.g { color: var(--green) !important; font-weight: 600 !important; }
+.r { color: var(--red)   !important; }
+.a { color: var(--amber) !important; font-weight: 600 !important; }
+
+/* ── TWO / THREE COL ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+@media(max-width:780px){
+  .two-col, .three-col { grid-template-columns: 1fr; }
+}
+
+/* ── PULL QUOTE ── */
+.pq {
+  background: var(--ice);
+  border-left: 4px solid var(--sky);
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.pq p {
+  font-family: var(--serif);
+  font-size: 18px; font-style: italic; font-weight: 300;
+  color: var(--navy); line-height: 1.55;
+}
+.pq p strong { font-style: normal; font-weight: 700; }
+.pq cite {
+  display: block; margin-top: 10px;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── CATALYST ENTRIES ── */
+.ce {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 0 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.ce:last-child { border-bottom: none; }
+.ce-n {
+  font-family: var(--serif);
+  font-size: 40px; font-weight: 900;
+  color: var(--rule); line-height: 1;
+  padding-top: 2px;
+}
+.ce-tag {
+  display: inline-block;
+  font-size: 8.5px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid; padding: 2px 8px; margin-bottom: 7px;
+}
+.t-ai  { color: var(--blue);  border-color: #4a90d9; background: #eef4ff; }
+.t-ma  { color: var(--amber); border-color: #c9a030; background: #fdfbf0; }
+.t-cap { color: var(--green); border-color: #4a9e70; background: #eef8f2; }
+.t-ven { color: #5b21b6;      border-color: #9b72db; background: #f5f0ff; }
+.t-cry { color: #7c3c00;      border-color: #c08040; background: #fdf5ec; }
+
+.ce-title {
+  font-family: var(--serif);
+  font-size: 19px; font-weight: 700;
+  color: var(--navy); letter-spacing: -0.3px;
+  margin-bottom: 8px; line-height: 1.2;
+}
+.ce-body {
+  font-size: 13.5px; color: var(--mid); line-height: 1.72;
+}
+.ce-body strong { color: var(--ink); font-weight: 600; }
+.ce-hor {
+  display: inline-block; margin-top: 10px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--navy); background: var(--ice);
+  padding: 3px 10px;
+}
+
+/* ── VAL DEF ── */
+.vdb {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--navy);
+  padding: 24px;
+  margin-bottom: 0;
+}
+.vdb-head {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 12px;
+  margin-bottom: 8px; flex-wrap: wrap;
+}
+.vdb-name {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 700; color: var(--navy);
+}
+.vdb-name small { font-size: 11px; font-weight: 400; font-style: italic; color: var(--muted); }
+.vdb-fig {
+  font-family: var(--mono);
+  font-size: 20px; font-weight: 500; color: var(--green);
+  flex-shrink: 0;
+}
+.vdb-text { font-size: 12.5px; color: var(--mid); line-height: 1.68; }
+.vdb-verd {
+  margin-top: 8px; font-size: 9.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--green);
+}
+
+/* ── SCENARIO STRIP ── */
+.scen {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+@media(max-width:660px){ .scen { grid-template-columns: 1fr; } }
+.sc-card {
+  padding: 28px 24px;
+  border: 1px solid var(--rule);
+  border-right: none;
+}
+.sc-card:last-child { border-right: 1px solid var(--rule); }
+.sc-card.bull { background: #f0faf4; border-top: 4px solid var(--green); }
+.sc-card.base { background: #fdfbf0; border-top: 4px solid var(--amber); }
+.sc-card.bear { background: #fdf3f3; border-top: 4px solid var(--red);   }
+
+.sc-type {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.sc-card.bull .sc-type { color: var(--green); }
+.sc-card.base .sc-type { color: var(--amber); }
+.sc-card.bear .sc-type { color: var(--red);   }
+
+.sc-price {
+  font-family: var(--serif);
+  font-size: 40px; font-weight: 900;
+  letter-spacing: -1.5px; line-height: 1;
+  color: var(--navy); margin-bottom: 4px;
+}
+.sc-upside { font-family: var(--mono); font-size: 12px; margin-bottom: 14px; }
+.sc-card.bull .sc-upside { color: var(--green); }
+.sc-card.base .sc-upside { color: var(--amber); }
+.sc-card.bear .sc-upside { color: var(--red);   }
+.sc-desc { font-size: 12.5px; color: var(--mid); line-height: 1.62; }
+.sc-mult {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── RISKS ── */
+.risk-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px; align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.risk-row:last-child { border-bottom: none; }
+.rr-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.rr-body  { font-size: 12.5px; color: var(--mid); line-height: 1.62; }
+.sev {
+  font-size: 8.5px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  white-space: nowrap; padding: 4px 10px; border: 1px solid;
+}
+.sev-med { color: var(--amber); border-color: #c9a030; background: #fdfbf0; }
+.sev-hi  { color: var(--red);   border-color: #d09090; background: #fdf2f2; }
+
+/* ── KV LIST ── */
+.kv-row {
+  display: flex; justify-content: space-between;
+  align-items: baseline; padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+  gap: 12px;
+}
+.kv-row:first-child { border-top: 1px solid var(--rule); }
+.kv-l { font-size: 13px; color: var(--mid); }
+.kv-v {
+  font-family: var(--mono); font-size: 12.5px;
+  font-weight: 500; color: var(--ink); text-align: right;
+}
+
+/* ── DIVIDER ── */
+.slide-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--sky) 50%, transparent 100%);
+  margin: 0;
+}
+
+/* ── VERDICT SLIDE ── */
+#verdict {
+  background: var(--navy);
+  color: #fff;
+}
+.verdict-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 60px; align-items: center;
+}
+@media(max-width:700px){ .verdict-grid { grid-template-columns: 1fr; } }
+.vg-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.30); margin-bottom: 12px;
+}
+.vg-headline {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900; color: #fff;
+  letter-spacing: -1px; line-height: 1.1;
+  margin-bottom: 18px;
+}
+.vg-headline .sky { color: var(--sky); }
+.vg-body {
+  font-size: 14px; font-weight: 300;
+  color: rgba(255,255,255,0.60);
+  max-width: 540px; line-height: 1.72;
+  margin-bottom: 28px;
+}
+.vg-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.vg-pill {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.20);
+  color: rgba(255,255,255,0.70);
+}
+.vg-pill.filled {
+  background: var(--sky); color: var(--navy);
+  border-color: var(--sky);
+}
+.vg-right { text-align: right; }
+.vr-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.28); margin-bottom: 4px;
+}
+.vr-rating {
+  font-family: var(--serif);
+  font-size: 64px; font-weight: 900;
+  color: var(--sky); line-height: 1;
+  letter-spacing: -3px;
+}
+.vr-pt {
+  font-family: var(--mono); font-size: 16px;
+  font-weight: 500; color: #5ddf9a; margin-top: 6px;
+}
+.vr-ticker {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; color: rgba(255,255,255,0.22);
+  margin-top: 4px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #08133a;
+  padding: 14px 60px;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.foot-l {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.30);
+}
+.foot-r { font-size: 10px; color: rgba(255,255,255,0.18); max-width: 440px; text-align: right; line-height: 1.5; }
+
+/* ── SLIDE BG ACCENTS ── */
+.slide.off-bg { background: var(--off); }
+.slide.white-bg { background: var(--white); }
+
+/* ── PAGE BREAK HINT ── */
+.section-banner {
+  display: flex; align-items: center;
+  gap: 16px; margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--rule);
+}
+.section-banner .sb-num {
+  font-family: var(--serif);
+  font-size: 52px; font-weight: 900;
+  color: var(--rule); line-height: 1;
+  letter-spacing: -2px;
+}
+.section-banner .sb-info {}
+.section-banner .sb-info .sbi-top {
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--sky);
+  margin-bottom: 3px;
+}
+.section-banner .sb-info .sbi-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700; color: var(--navy);
+  letter-spacing: -0.6px; line-height: 1.1;
+}
+
+/* scroll-fade animation */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: none; }
+}
+.slide { animation: fadeUp 0.5s ease both; }
+.slide:nth-child(2) { animation-delay: .05s; }
+.slide:nth-child(3) { animation-delay: .10s; }
+.slide:nth-child(4) { animation-delay: .15s; }
+.slide:nth-child(5) { animation-delay: .20s; }
+.slide:nth-child(6) { animation-delay: .25s; }
+.slide:nth-child(7) { animation-delay: .30s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><div class="dot"></div>PayPal Holdings — Stock Pitch 2026</div>
+  <ul class="nav-links">
+    <li><a href="#cover">Cover</a></li>
+    <li><a href="#thesis">Thesis</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#catalysts">Catalysts</a></li>
+    <li><a href="#valuation">Valuation</a></li>
+    <li><a href="#risks">Risks</a></li>
+    <li><a href="#verdict">Verdict</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-price">PYPL <b>$44.59</b></div>
+    <div class="buy-tag">BUY</div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 1 — COVER
+═══════════════════════════════════════ -->
+<section class="slide" id="cover">
+  <div class="slide-inner">
+    <div class="slide-label">
+      <span class="slide-num">01</span>
+      <div class="slide-sep"></div>
+      <span class="slide-cat" style="color:rgba(255,255,255,0.35);">Stock Pitch Competition · March 2026</span>
+    </div>
+
+    <div class="cover-grid">
+      <div>
+        <div class="title-xl" style="color:#fff; font-size:clamp(48px,7vw,80px); margin-bottom:16px;">
+          Pay<span class="sky-text">Pal</span><br>Holdings, Inc.
+        </div>
+        <div style="font-size:12px; font-weight:400; color:rgba(255,255,255,0.35); letter-spacing:1px; margin-bottom:20px;">
+          NASDAQ: PYPL &nbsp;·&nbsp; Consumer Fintech &nbsp;·&nbsp; Digital Payments &nbsp;·&nbsp; S&P 500
+        </div>
+        <p class="deck">
+          A $1.79 trillion payment network with a decade of unbroken earnings growth, $6.6B EBITDA, and $21B returned to shareholders — priced at 6.3× TEV/EBITDA, its lowest valuation in five years.
+        </p>
+      </div>
+      <div class="cover-rating">
+        <div class="cr-label">Recommendation</div>
+        <div class="cr-val">Buy</div>
+        <div class="cr-rows">
+          <div class="cr-row">
+            <span class="crl">Price Target</span>
+            <span class="crv grn">$64 – $85</span>
+          </div>
+          <div class="cr-row">
+            <span class="crl">Upside</span>
+            <span class="crv grn">44 – 91%</span>
+          </div>
+          <div class="cr-row">
+            <span class="crl">Current Price</span>
+            <span class="crv">$44.59</span>
+          </div>
+          <div class="cr-row">
+            <span class="crl">Shares Out.</span>
+            <span class="crv">920.7M</span>
+          </div>
+          <div class="cr-row">
+            <span class="crl">Market Cap</span>
+            <span class="crv">$41.1B</span>
+          </div>
+          <div class="cr-row">
+            <span class="crl">TEV</span>
+            <span class="crv sky">$42.9B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-strip">
+      <div class="cs"><div class="cs-l">FY25 Revenue</div><div class="cs-v sky">$33.2B</div><div class="cs-s">+4.3% YoY</div></div>
+      <div class="cs"><div class="cs-l">FY25 EBITDA</div><div class="cs-v grn">$6.6B</div><div class="cs-s">20.0% margin</div></div>
+      <div class="cs"><div class="cs-l">FY25 Net Income</div><div class="cs-v grn">$5.23B</div><div class="cs-s">15.8% margin</div></div>
+      <div class="cs"><div class="cs-l">Diluted EPS</div><div class="cs-v grn">$5.41</div><div class="cs-s">+35.6% YoY</div></div>
+      <div class="cs"><div class="cs-l">TEV / EBITDA</div><div class="cs-v sky">6.3×</div><div class="cs-s">5-year low</div></div>
+      <div class="cs"><div class="cs-l">Buybacks (4yr)</div><div class="cs-v grn">$21.3B</div><div class="cs-s">−21% share count</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 2 — THESIS
+═══════════════════════════════════════ -->
+<section class="slide white-bg" id="thesis">
+  <div class="slide-inner">
+    <div class="section-banner">
+      <div class="sb-num">01</div>
+      <div class="sb-info">
+        <div class="sbi-top">Investment Thesis</div>
+        <div class="sbi-title">Misunderstood. Mispriced. Actionable.</div>
+      </div>
+    </div>
+
+    <div class="pq">
+      <p>At <strong>6.3× TEV/EBITDA</strong> — tracking lower every single year since FY22 — the market has assigned distressed-company multiples to a business whose <strong>diluted EPS grew 35.6% in FY25</strong>, whose EBITDA margin expanded from 17.9% to 20.0%, and whose total payment volume crossed <strong>$1.79 trillion</strong>. The valuation compression is a sentiment story. The fundamentals are not.</p>
+      <cite>Source: S&P Capital IQ · Key Stats · March 2026</cite>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box green-top">
+        <div class="sb-label">EBITDA (FY25)</div>
+        <div class="sb-val grn">$6.6B</div>
+        <div class="sb-sub">vs. $4.9B in FY22 (+35%)</div>
+      </div>
+      <div class="stat-box green-top">
+        <div class="sb-label">Diluted EPS (FY25)</div>
+        <div class="sb-val grn">$5.41</div>
+        <div class="sb-sub">+35.6% YoY / +159% vs FY22</div>
+      </div>
+      <div class="stat-box">
+        <div class="sb-label">TEV / EBITDA (FY25)</div>
+        <div class="sb-val">6.3×</div>
+        <div class="sb-sub">vs. 8.4× in FY22 — multiple contracted while earnings grew</div>
+      </div>
+      <div class="stat-box navy">
+        <div class="sb-label">The Opportunity</div>
+        <div class="sb-val" style="font-size:22px; letter-spacing:-0.5px;">Earnings ↑<br>Multiple ↓</div>
+        <div class="sb-sub">Reversion alone drives the thesis</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p style="font-size:13.5px; color:var(--mid); line-height:1.72; margin-bottom:16px;">
+          PayPal processed <strong>$1.79T in total payment volume</strong> across 200+ markets with 439M active accounts in FY25 — more than Stripe and Square combined. It holds <strong>$10.4B in cash</strong> and has returned <strong>$21.3B to shareholders</strong> over four years through buybacks alone, retiring 21% of its share count from 1,165M to 920.7M.
+        </p>
+        <p style="font-size:13.5px; color:var(--mid); line-height:1.72;">
+          Retained earnings grew from $16.5B in FY21 to <strong>$32.5B in FY25</strong> — a $16B increase in four years — while treasury stock grew in parallel as buybacks compounded per-share value. This is the financial profile of a growing, cash-generative business, not a declining one.
+        </p>
+      </div>
+      <div>
+        <div class="kv-row"><span class="kv-l">Total Payment Volume (FY25)</span><span class="kv-v g">$1.79T (+7%)</span></div>
+        <div class="kv-row"><span class="kv-l">Active Accounts</span><span class="kv-v">439 million</span></div>
+        <div class="kv-row"><span class="kv-l">Markets</span><span class="kv-v">200+</span></div>
+        <div class="kv-row"><span class="kv-l">Free Cash Flow</span><span class="kv-v g">~$5.6B</span></div>
+        <div class="kv-row"><span class="kv-l">Cash &amp; ST Investments</span><span class="kv-v">$10,422M</span></div>
+        <div class="kv-row"><span class="kv-l">Retained Earnings (FY21 → FY25)</span><span class="kv-v g">$16,535M → $32,470M</span></div>
+        <div class="kv-row"><span class="kv-l">Treasury Stock (cumulative buybacks)</span><span class="kv-v r">($33,138M)</span></div>
+        <div class="kv-row"><span class="kv-l">Shares Retired (FY21 → FY25)</span><span class="kv-v g">1,165M → 920.7M (−21%)</span></div>
+        <div class="kv-row"><span class="kv-l">Full-Time Employees (FY25)</span><span class="kv-v">23,800</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 3 — FINANCIALS
+═══════════════════════════════════════ -->
+<section class="slide off-bg" id="financials">
+  <div class="slide-inner">
+    <div class="section-banner">
+      <div class="sb-num">02</div>
+      <div class="sb-info">
+        <div class="sbi-top">Historical Financials</div>
+        <div class="sbi-title">Five Years of Unbroken Growth.</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-bottom:32px;">
+      <!-- KEY FINANCIALS — exact CIQ data -->
+      <div>
+        <table class="tbl">
+          <caption>Income Statement Summary — Capital IQ (USD Millions)</caption>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>FY21A</th>
+              <th>FY22A</th>
+              <th>FY23A</th>
+              <th>FY24A</th>
+              <th>FY25A</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="total"><td>Total Revenue</td><td>25,371</td><td>27,518</td><td>29,771</td><td>31,797</td><td class="g">33,172</td></tr>
+            <tr class="sub"><td>Growth YoY</td><td>18.3%</td><td>8.5%</td><td>8.2%</td><td>6.8%</td><td class="g">4.3%</td></tr>
+            <tr><td>Gross Profit</td><td>11,921</td><td>11,653</td><td>11,785</td><td>12,890</td><td class="g">13,761</td></tr>
+            <tr class="sub"><td>Gross Margin %</td><td>47.0%</td><td>42.3%</td><td>39.6%</td><td>40.5%</td><td class="g">41.5%</td></tr>
+            <tr><td>EBITDA</td><td>5,214</td><td>4,930</td><td>5,442</td><td>6,166</td><td class="g">6,649</td></tr>
+            <tr class="sub"><td>EBITDA Margin %</td><td>20.6%</td><td>17.9%</td><td>18.3%</td><td>19.4%</td><td class="g">20.0%</td></tr>
+            <tr><td>EBIT</td><td>4,315</td><td>4,039</td><td>4,852</td><td>5,632</td><td class="g">6,203</td></tr>
+            <tr class="sub"><td>EBIT Margin %</td><td>17.0%</td><td>14.7%</td><td>16.3%</td><td>17.7%</td><td class="g">18.7%</td></tr>
+            <tr><td>Net Income</td><td>4,169</td><td>2,419</td><td>4,246</td><td>4,147</td><td class="g">5,233</td></tr>
+            <tr class="sub"><td>Net Margin %</td><td>16.4%</td><td>8.8%</td><td>14.3%</td><td>13.0%</td><td class="g">15.8%</td></tr>
+            <tr class="total"><td>Diluted EPS (excl. extra)</td><td>3.52</td><td>2.09</td><td>3.84</td><td>3.99</td><td class="g">5.41</td></tr>
+            <tr class="sub"><td>EPS Growth YoY</td><td>(0.6%)</td><td>(40.6%)</td><td>83.7%</td><td>3.9%</td><td class="g">35.6%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <table class="tbl" style="margin-bottom:24px;">
+          <caption>Capitalization — Capital IQ (USD Millions)</caption>
+          <tbody>
+            <tr><td>Share Price</td><td class="a">$44.59</td></tr>
+            <tr><td>Shares Outstanding</td><td>920.7M</td></tr>
+            <tr class="total"><td>Market Capitalization</td><td class="a">41,052.4</td></tr>
+            <tr class="sub"><td>– Cash &amp; ST Investments</td><td>(10,422.0)</td></tr>
+            <tr class="sub"><td>+ Total Debt</td><td>12,296.0</td></tr>
+            <tr class="total"><td>Total Enterprise Value (TEV)</td><td class="a">42,926.4</td></tr>
+            <tr><td>Book Value / Common Equity</td><td>20,256.0</td></tr>
+            <tr class="total"><td>Total Capital</td><td>32,552.0</td></tr>
+          </tbody>
+        </table>
+
+        <table class="tbl">
+          <caption>Valuation Multiples — Capital IQ (on current TEV)</caption>
+          <thead>
+            <tr><th>Multiple</th><th>FY22A</th><th>FY23A</th><th>FY24A</th><th>FY25A</th></tr>
+          </thead>
+          <tbody>
+            <tr class="hl"><td>TEV / Revenue</td><td>1.6×</td><td>1.4×</td><td>1.4×</td><td class="g">1.3×</td></tr>
+            <tr class="hl"><td>TEV / EBITDA</td><td>8.4×</td><td>7.7×</td><td>6.8×</td><td class="g">6.3×</td></tr>
+            <tr class="hl"><td>TEV / EBIT</td><td>10.6×</td><td>8.8×</td><td>7.6×</td><td class="g">6.9×</td></tr>
+            <tr class="hl"><td>P / Diluted EPS</td><td>21.3×</td><td>11.6×</td><td>11.2×</td><td class="g">8.2×</td></tr>
+            <tr class="hl"><td>P / Book Value</td><td>2.5×</td><td>2.3×</td><td>2.2×</td><td class="g">2.0×</td></tr>
+            <tr class="hl"><td>P / Tangible BV</td><td>6.1×</td><td>5.0×</td><td>4.8×</td><td class="g">4.5×</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- balance sheet highlight -->
+    <table class="tbl">
+      <caption>Selected Balance Sheet — Capital IQ (USD Millions)</caption>
+      <thead>
+        <tr><th>Line Item</th><th>FY2021A</th><th>FY2022A</th><th>FY2023A</th><th>FY2024A</th><th>FY2025A</th></tr>
+      </thead>
+      <tbody>
+        <tr class="total"><td>Cash &amp; ST Investments</td><td>9,500</td><td>10,868</td><td>14,060</td><td>10,924</td><td class="g">10,422</td></tr>
+        <tr class="total"><td>Total Assets</td><td>75,803</td><td>78,624</td><td>82,166</td><td>78,725</td><td>80,173</td></tr>
+        <tr><td>Long-Term Debt</td><td>8,049</td><td>10,417</td><td>9,676</td><td>9,879</td><td>9,987</td></tr>
+        <tr class="total"><td>Total Liabilities</td><td>54,076</td><td>58,350</td><td>61,115</td><td>58,308</td><td>59,917</td></tr>
+        <tr><td>Retained Earnings</td><td>16,535</td><td>18,954</td><td>23,200</td><td>27,347</td><td class="g">32,470</td></tr>
+        <tr><td>Treasury Stock</td><td>(11,880)</td><td>(16,079)</td><td>(21,045)</td><td>(27,085)</td><td class="r">(33,138)</td></tr>
+        <tr class="total"><td>Total Common Equity</td><td>21,727</td><td>20,274</td><td>21,051</td><td>20,417</td><td>20,256</td></tr>
+        <tr><td>Shares Outstanding (M)</td><td>1,165.0</td><td>1,131.4</td><td>1,071.7</td><td>989.2</td><td class="g">920.7</td></tr>
+        <tr><td>Book Value / Share</td><td>$18.60</td><td>$17.85</td><td>$19.64</td><td>$20.56</td><td>$22.02</td></tr>
+        <tr><td>Tangible Book Value / Share</td><td>$7.65</td><td>$7.29</td><td>$8.85</td><td>$9.32</td><td class="g">$9.98</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 4 — CATALYSTS
+═══════════════════════════════════════ -->
+<section class="slide white-bg" id="catalysts">
+  <div class="slide-inner">
+    <div class="section-banner">
+      <div class="sb-num">03</div>
+      <div class="sb-info">
+        <div class="sbi-top">Catalysts</div>
+        <div class="sbi-title">Five Independent Reasons to Own PYPL.</div>
+      </div>
+    </div>
+
+    <div class="ce">
+      <div class="ce-n">01</div>
+      <div>
+        <span class="ce-tag t-ai">AI Commerce</span>
+        <div class="ce-title">Agentic Commerce — PayPal Embedded Inside ChatGPT</div>
+        <p class="ce-body">In October 2025, PayPal became the <strong>embedded payments layer inside ChatGPT</strong> via the Agentic Commerce Protocol — enabling checkout without leaving the AI. ChatGPT had 400M+ weekly users and was the <strong>8th most-visited website globally</strong> in December 2025. Live or near-live partnerships with <strong>Microsoft Copilot, Perplexity, Google Gemini, and Wix</strong>. In January 2026, PayPal acquired <strong>Cymbio</strong> to own the product-detail-page layer — the critical conversion point in AI-native shopping. This is the next evolution of the checkout button, and PayPal already controls the rails.</p>
+        <span class="ce-hor">⟶ Catalyst Timeline: 6–18 months</span>
+      </div>
+    </div>
+
+    <div class="ce">
+      <div class="ce-n">02</div>
+      <div>
+        <span class="ce-tag t-ma">M&amp;A</span>
+        <div class="ce-title">Stripe Acquisition Speculation — A Structural Floor on the Stock</div>
+        <p class="ce-body">Bloomberg reported February 24, 2026 that <strong>Stripe ($159B valuation) is evaluating a PayPal acquisition</strong> (market cap ~$41B). The inversion is stark: PayPal earns $5.23B net income and processes $1.79T in volume — yet trades at one-quarter of Stripe's private value. Other named acquirers include <strong>Google, Microsoft, and PE firms</strong>. Any credible bid would arrive at a 50–150% premium to current price. <strong>Investors receive this optionality at zero incremental cost.</strong></p>
+        <span class="ce-hor">⟶ Structural floor — perpetual</span>
+      </div>
+    </div>
+
+    <div class="ce">
+      <div class="ce-n">03</div>
+      <div>
+        <span class="ce-tag t-cap">Capital Return</span>
+        <div class="ce-title">$21.3B Returned in 4 Years — Most Accretive Buybacks in Company History</div>
+        <p class="ce-body">Treasury stock grew from ($11.9B) in FY21 to ($33.1B) in FY25 per Capital IQ — <strong>$21.3B returned via buybacks in four years.</strong> Shares fell from 1,165M to 920.7M, a 21% reduction. With $13B remaining on authorization and ~$5.6B annual FCF, the program is self-funding. At <strong>$44.59 — the cheapest buyback price in company history</strong> — each dollar retires more EPS than at any prior point. EPS grew 35.6% in FY25 in significant part due to this compounding.</p>
+        <span class="ce-hor">⟶ Ongoing — 3–5 year compounding</span>
+      </div>
+    </div>
+
+    <div class="ce">
+      <div class="ce-n">04</div>
+      <div>
+        <span class="ce-tag t-ven">Venmo</span>
+        <div class="ce-title">$1.7B Revenue Platform With 100M+ Users, Barely Monetized</div>
+        <p class="ce-body">Venmo generated <strong>$1.7B in revenue in FY25 (+20% YoY)</strong> across 100M+ accounts. As a standalone fintech, this revenue stream supports $8–12B in standalone value at peer multiples. Debit cards, merchant checkout, business profiles, crypto, and advertising are each in early innings. In agentic commerce, Venmo's purchase history and social graph represent a <strong>first-party data moat</strong> that grows more valuable as AI personalization scales.</p>
+        <span class="ce-hor">⟶ Accelerating — 12–24 months</span>
+      </div>
+    </div>
+
+    <div class="ce">
+      <div class="ce-n">05</div>
+      <div>
+        <span class="ce-tag t-cry">Stablecoin</span>
+        <div class="ce-title">PYUSD — Settlement Infrastructure for the Machine Economy</div>
+        <p class="ce-body">PayPal USD (PYUSD) is live in <strong>70 markets worldwide</strong>. As AI agents transact autonomously, stablecoin rails become strategic infrastructure — programmable, near-instant, borderless, near-zero cost. Legacy card networks were built for human-initiated commerce; they are poorly suited for machine-to-machine micropayments. PYUSD combines <strong>consumer trust, merchant acceptance, and regulatory clarity</strong> — a combination no competitor has replicated at PayPal's distribution scale.</p>
+        <span class="ce-hor">⟶ Emerging — 18–36 month horizon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 5 — VALUATION
+═══════════════════════════════════════ -->
+<section class="slide off-bg" id="valuation">
+  <div class="slide-inner">
+    <div class="section-banner">
+      <div class="sb-num">04</div>
+      <div class="sb-info">
+        <div class="sbi-top">Valuation</div>
+        <div class="sbi-title">Every Metric Points the Same Direction.</div>
+      </div>
+    </div>
+
+    <!-- METRIC DEFINITIONS -->
+    <div class="three-col" style="margin-bottom:32px;">
+      <div class="vdb">
+        <div class="vdb-head">
+          <div class="vdb-name">EBITDA <small>(Earnings Before Interest, Tax, D&A)</small></div>
+          <div class="vdb-fig">$6,649M</div>
+        </div>
+        <p class="vdb-text">Core operating profit, stripped of financing and non-cash charges. At $6.65B on $33.2B revenue, PayPal's <strong>20.0% EBITDA margin has expanded every year since FY22</strong> (17.9% → 18.3% → 19.4% → 20.0%) — demonstrating operating leverage as the business scales.</p>
+        <div class="vdb-verd">↑ Margin: 17.9% (FY22) → 20.0% (FY25)</div>
+      </div>
+      <div class="vdb">
+        <div class="vdb-head">
+          <div class="vdb-name">TEV / EBITDA</div>
+          <div class="vdb-fig">6.3×</div>
+        </div>
+        <p class="vdb-text">Primary valuation multiple for payments companies. At 6.3×, PYPL has de-rated from 8.4× in FY22 <em>despite</em> EBITDA growing from $4.9B to $6.6B. Multiple compression is entirely sentiment-driven. Visa: ~24×. Mastercard: ~28×. PYPL's own FY22 multiple of 8.4× implies a current stock price above $90.</p>
+        <div class="vdb-verd">↑ Own FY22 multiple (8.4×) → ~$90+ stock price</div>
+      </div>
+      <div class="vdb">
+        <div class="vdb-head">
+          <div class="vdb-name">TEV / EBIT</div>
+          <div class="vdb-fig">6.9×</div>
+        </div>
+        <p class="vdb-text">More conservative than EBITDA — accounts for D&A. At 6.9×, down from 10.6× in FY22, <em>despite</em> EBIT growing from $4.0B to $6.2B (+54%). The earnings growth has been systematically repriced lower by the market with no fundamental justification.</p>
+        <div class="vdb-verd">↑ EBIT +54% (FY22→FY25) while multiple fell −35%</div>
+      </div>
+      <div class="vdb">
+        <div class="vdb-head">
+          <div class="vdb-name">P / Diluted EPS</div>
+          <div class="vdb-fig">8.2×</div>
+        </div>
+        <p class="vdb-text">Price-to-earnings on fully diluted basis per Capital IQ. At 8.2× — less than half the S&P 500 average P/E of ~22×. EPS grew 35.6% in FY25, yet the P/E contracted from 11.2× in FY24 to 8.2×. The market is paying <em>less</em> per dollar of earnings even as earnings accelerate.</p>
+        <div class="vdb-verd">↑ EPS +35.6% FY25; P/E contracted simultaneously</div>
+      </div>
+      <div class="vdb">
+        <div class="vdb-head">
+          <div class="vdb-name">P / Book Value</div>
+          <div class="vdb-fig">2.0×</div>
+        </div>
+        <p class="vdb-text">At 2.0×, PYPL trades near tangible asset value — unusual for a business with 25%+ ROE. Treasury stock distorts reported book equity: $33.1B in cumulative buybacks has reduced the equity base, making 2.0× appear more expensive than underlying earnings power implies.</p>
+        <div class="vdb-verd">↑ ROE 25.7% — inconsistent with a 2.0× P/B business</div>
+      </div>
+      <div class="vdb">
+        <div class="vdb-head">
+          <div class="vdb-name">DCF &amp; Analyst Consensus</div>
+          <div class="vdb-fig">$64–$107</div>
+        </div>
+        <p class="vdb-text">Consensus target across 29 sell-side analysts: <strong>$64.04</strong>. High target: <strong>$107</strong>. DCF fair value (5% terminal growth, 10% WACC): <strong>$85.09</strong>. Current price implies the market is pricing in perpetual near-zero FCF growth — inconsistent with FY25 results and the buyback mechanics.</p>
+        <div class="vdb-verd">↑ 44–140% gap between price and fundamental value</div>
+      </div>
+    </div>
+
+    <!-- PEER TABLE -->
+    <table class="tbl" style="margin-bottom:32px;">
+      <caption>Peer Valuation Comparison — Current Market Multiples</caption>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Market Cap</th>
+          <th>TEV/EBITDA</th>
+          <th>TEV/EBIT</th>
+          <th>P/EPS (FY25)</th>
+          <th>P/Sales</th>
+          <th>FCF Yield</th>
+          <th>ROE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hl">
+          <td>★ PayPal (PYPL)</td>
+          <td>$41.1B</td>
+          <td class="g">6.3×</td>
+          <td class="g">6.9×</td>
+          <td class="g">8.2×</td>
+          <td class="g">1.3×</td>
+          <td class="g">~10%</td>
+          <td class="g">25.7%</td>
+        </tr>
+        <tr>
+          <td>Visa (V)</td>
+          <td>$550B</td>
+          <td class="r">~24×</td>
+          <td class="r">~26×</td>
+          <td class="r">28×</td>
+          <td class="r">16×</td>
+          <td>3.6%</td>
+          <td>48.0%</td>
+        </tr>
+        <tr>
+          <td>Mastercard (MA)</td>
+          <td>$460B</td>
+          <td class="r">~28×</td>
+          <td class="r">~30×</td>
+          <td class="r">31×</td>
+          <td class="r">18×</td>
+          <td>3.2%</td>
+          <td>196%</td>
+        </tr>
+        <tr>
+          <td>Block (SQ)</td>
+          <td>~$40B</td>
+          <td>15×</td>
+          <td>18×</td>
+          <td>23×</td>
+          <td>1.5×</td>
+          <td>5.0%</td>
+          <td>8.2%</td>
+        </tr>
+        <tr>
+          <td>Affirm (AFRM)</td>
+          <td>~$15B</td>
+          <td class="r">~45×</td>
+          <td class="r">~50×</td>
+          <td class="r">52×</td>
+          <td>4.5×</td>
+          <td>N/M</td>
+          <td>Neg.</td>
+        </tr>
+        <tr>
+          <td>Stripe (Private)</td>
+          <td>$159B est.</td>
+          <td class="r">~40×</td>
+          <td>—</td>
+          <td>N/M</td>
+          <td class="r">~8×</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SCENARIOS -->
+    <div class="scen">
+      <div class="sc-card bull">
+        <div class="sc-type">Bull Case</div>
+        <div class="sc-price">$85–107</div>
+        <div class="sc-upside">↑ 91–140% upside</div>
+        <p class="sc-desc">M&A transaction announced, or agentic commerce revenues accelerate faster than expected. Multiple re-rates to 10–12× TEV/EBITDA on improving sentiment. CEO Lores strategy reset restores institutional confidence and drives re-rating.</p>
+        <div class="sc-mult">10–12× TEV/EBITDA · $6.6B+ EBITDA</div>
+      </div>
+      <div class="sc-card base">
+        <div class="sc-type">Base Case</div>
+        <div class="sc-price">$64–75</div>
+        <div class="sc-upside">↑ 44–68% upside</div>
+        <p class="sc-desc">Multiple reverts to 8–9× TEV/EBITDA — PYPL's own FY22 level — as buybacks lift EPS and AI partnerships gain recognition. Consensus analyst target of $64.04 reached within 12 months. No M&A required.</p>
+        <div class="sc-mult">8–9× TEV/EBITDA · $6.6–7.0B EBITDA</div>
+      </div>
+      <div class="sc-card bear">
+        <div class="sc-type">Bear Case</div>
+        <div class="sc-price">$35–42</div>
+        <div class="sc-upside">↓ −6 to −21% downside</div>
+        <p class="sc-desc">Revenue declines accelerate, macro recession compresses consumer TPV, no M&A materializes, CEO transition causes prolonged uncertainty. Multiple remains at 5–6× with no re-rating catalyst.</p>
+        <div class="sc-mult">5–6× TEV/EBITDA · $5.5–6.0B EBITDA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 6 — RISKS
+═══════════════════════════════════════ -->
+<section class="slide white-bg" id="risks">
+  <div class="slide-inner">
+    <div class="section-banner">
+      <div class="sb-num">05</div>
+      <div class="sb-info">
+        <div class="sbi-top">Risk Assessment</div>
+        <div class="sbi-title">What Could Go Wrong.</div>
+      </div>
+    </div>
+
+    <div class="stat-row" style="margin-bottom:32px;">
+      <div class="stat-box green-top">
+        <div class="sb-label">Base Case Upside</div>
+        <div class="sb-val grn">+44–68%</div>
+        <div class="sb-sub">to $64–$75</div>
+      </div>
+      <div class="stat-box red-top">
+        <div class="sb-label">Bear Case Downside</div>
+        <div class="sb-val red">−6–21%</div>
+        <div class="sb-sub">to $35–$42</div>
+      </div>
+      <div class="stat-box">
+        <div class="sb-label">Risk / Reward</div>
+        <div class="sb-val">~4:1</div>
+        <div class="sb-sub">Base upside vs. bear downside</div>
+      </div>
+      <div class="stat-box navy">
+        <div class="sb-label">M&A Floor</div>
+        <div class="sb-val">Protected</div>
+        <div class="sb-sub">Stripe / Google / PE optionality provides structural support</div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div>
+        <div class="rr-title">Competitive Pressure — Apple Pay, Google Pay, Stripe</div>
+        <p class="rr-body">Device-native wallets continue gaining checkout share through pre-installation advantages PayPal cannot replicate. Branded PayPal checkout growth has decelerated in recent quarters as consumers default to Apple Pay and Google Pay. Sustained market share erosion in consumer checkout remains the primary long-term structural risk to the thesis.</p>
+      </div>
+      <span class="sev sev-med">Medium</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="rr-title">CEO Transition &amp; Strategic Uncertainty — Enrique Lores (March 2026)</div>
+        <p class="rr-body">Lores has no prior fintech experience, having led HP's hardware and services transformation. A guidance reset following Q4 2025 reduced management credibility in the near term. Strategic execution risk is elevated through mid-2026 as a new framework is communicated. Near-term volatility is the likely outcome during this period.</p>
+      </div>
+      <span class="sev sev-med">Medium</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="rr-title">Securities Class Action Litigation</div>
+        <p class="rr-body">Multiple class action lawsuits were filed in early 2026 following the Q4 earnings miss and abrupt CEO departure. These are likely to be settled, but management attention and legal costs are real near-term headwinds during a critical strategic transition.</p>
+      </div>
+      <span class="sev sev-med">Medium</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="rr-title">Macroeconomic Deterioration — Consumer Spending Contraction</div>
+        <p class="rr-body">PayPal's revenue is directly correlated with consumer transaction volume. A recession or sustained e-commerce deceleration would compress total payment volume, transaction margins, and ultimately EBITDA. Lower average order values are already visible as a headwind in select international markets, and this risk would intensify in a downturn.</p>
+      </div>
+      <span class="sev sev-hi">High</span>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SLIDE 7 — VERDICT
+═══════════════════════════════════════ -->
+<section class="slide" id="verdict">
+  <div class="slide-inner">
+    <div class="section-banner" style="border-bottom-color: rgba(255,255,255,0.12);">
+      <div class="sb-num" style="color:rgba(255,255,255,0.08);">06</div>
+      <div class="sb-info">
+        <div class="sbi-top" style="color:var(--sky);">Investment Conclusion</div>
+        <div class="sbi-title" style="color:#fff;">The Case in Full.</div>
+      </div>
+    </div>
+
+    <div class="verdict-grid">
+      <div>
+        <div class="vg-label">Why Buy PayPal Today</div>
+        <div class="vg-headline">A mispriced <span class="sky">$1.79 trillion</span><br>payment network.</div>
+        <p class="vg-body">
+          At 6.3× TEV/EBITDA and 8.2× P/EPS — figures sourced directly from Capital IQ — PayPal offers value that is difficult to justify ignoring. EBITDA has grown every year, margins are expanding, EPS grew 35.6% in FY25, and the company has returned $21.3B to shareholders via buybacks over four years — reducing share count by 21%. The company is now embedding itself into the AI commerce layer via OpenAI and building stablecoin rails for the machine economy. Meanwhile, Bloomberg reports that Stripe is considering an acquisition at a valuation that implies 50–150% upside from today.
+        </p>
+        <div class="vg-pills">
+          <div class="vg-pill filled">BUY</div>
+          <div class="vg-pill">PT: $64–$85</div>
+          <div class="vg-pill">Upside: 44–91%</div>
+          <div class="vg-pill">TEV/EBITDA: 6.3×</div>
+          <div class="vg-pill">P/EPS: 8.2×</div>
+          <div class="vg-pill">EPS Growth: +35.6%</div>
+          <div class="vg-pill">Buybacks: $21.3B (4yr)</div>
+        </div>
+      </div>
+      <div class="vg-right">
+        <div class="vr-label">Recommendation</div>
+        <div class="vr-rating">Buy</div>
+        <div class="vr-pt">PT: $64–$85</div>
+        <div class="vr-ticker">NASDAQ: PYPL · March 2026</div>
+        <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.10);">
+          <div class="vr-label" style="margin-bottom:6px;">Capital IQ Data</div>
+          <div style="font-family:var(--mono); font-size:11.5px; color:rgba(255,255,255,0.40); line-height:1.8;">
+            TEV: $42,926M<br>
+            EBITDA: $6,649M<br>
+            Net Income: $5,233M<br>
+            EPS: $5.41 (+35.6%)<br>
+            Shares: 920.7M<br>
+            Cash: $10,422M
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="foot-l">PYPL Stock Pitch · Competition Use Only · March 2026</div>
+  <div class="foot-r">For educational and competition purposes only. Not investment advice. Financial data sourced from S&P Capital IQ. All investing involves risk including possible loss of principal.</div>
+</div>
+
+</body>
+</html>
